@@ -46,7 +46,7 @@ class ViewController: UIViewController {
             DispatchQueue.main.async {
                 NetworkManager().sendUser(params) { [weak self] data,error  in
                     if error != nil{
-                        self?.createAlert(title: "Alert", body: error!.localizedDescription)
+                      self?.showAlert(message: "No data found2")
                     }
                     else{
                         if let data = data{
@@ -55,18 +55,21 @@ class ViewController: UIViewController {
                                 self?.tableView.reloadData()
                             }
                         }
+                        else{   self?.showAlert(message: "No data found") }
                     }
-                }
-            }
-            
+                } }
         }
-        else{
-            self.createAlert(title: "OOPS!", body: "Please enter some keyword for results")
-        }
+        else{ self.showAlert(message: "Please enter some keyword for results") }
+    }
+    
+    func showAlert(message: String){
+        DispatchQueue.main.async {
+        self.createAlert(title: "Sorry!", body: message) }
     }
     
     @IBAction func endEditingTextField(_ sender: AutoSuggestTextField) {
         loadMoreItemsForList()
+        currentPage = 0
     }
     func loadMoreItemsForList(){
         currentPage += 1
@@ -78,9 +81,7 @@ class ViewController: UIViewController {
             self.isLoadingList = true
             self.loadMoreItemsForList()
         }
-    }
-    
-    
+    }    
 }
 
 

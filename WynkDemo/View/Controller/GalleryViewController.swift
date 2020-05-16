@@ -12,9 +12,9 @@ class GalleryViewController: UIViewController {
     
     private let itemsPerRow: CGFloat = 1
     private let sectionInsets = UIEdgeInsets(top: 50.0,
-                                             left: 10.0,
+                                             left: 0.0,
                                              bottom: 50.0,
-                                             right: 10.0)
+                                             right: 0.0)
     var imageListViewModel = [DataObjectsViewModel]()
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -27,7 +27,6 @@ class GalleryViewController: UIViewController {
         collectionView.delegate =  self
         collectionView.dataSource = self
         collectionView.reloadData()
-        
         
     }
 }
@@ -50,8 +49,9 @@ extension GalleryViewController : UICollectionViewDelegateFlowLayout {
 
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
+    
                       sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: self.collectionView.frame.size.width , height: self.collectionView.frame.size.height - 100)
+    return CGSize(width: collectionView.frame.width , height: self.collectionView.frame.width)
   }
 
   func collectionView(_ collectionView: UICollectionView,

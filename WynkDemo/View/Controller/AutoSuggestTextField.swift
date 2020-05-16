@@ -29,6 +29,7 @@ class AutoSuggestTextField: UITextField{
         self.addTarget(self, action: #selector(AutoSuggestTextField.textFieldDidChange), for: .editingChanged)
         self.addTarget(self, action: #selector(AutoSuggestTextField.textFieldDidBeginEditing), for: .editingDidBegin)
         self.addTarget(self, action: #selector(AutoSuggestTextField.textFieldDidEndEditing), for: .editingDidEnd)
+        self.addTarget(self, action: #selector(AutoSuggestTextField.textFieldDidEndEditingOnExit), for: .editingDidEndOnExit)
     }
  
     override open func layoutSubviews() {
@@ -53,7 +54,11 @@ class AutoSuggestTextField: UITextField{
         print("End editing")
          addData()
     }
-    
+    @objc open func textFieldDidEndEditingOnExit() {
+           print("End on Exit")
+           tableView?.isHidden = true
+    }
+
     func loadDataAndUpdateTable(){
         filter()
         updateSearchTableView()
@@ -77,13 +82,13 @@ class AutoSuggestTextField: UITextField{
 
     }
     
-    open func loadItems(withRequest request : NSFetchRequest<Result>) -> [Result]? {
+    open func loadItems(withRequest request : NSFetchRequest<Result>)-> [Result]? {
         do {
             dataList = try context.fetch(request)
             return dataList
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
-            return nil
+           return nil
         }
 
     }
@@ -95,7 +100,7 @@ class AutoSuggestTextField: UITextField{
         let request : NSFetchRequest<Result> = Result.fetchRequest()
         request.predicate = predicate
         
-        let result = loadItems(withRequest : request)
+        _ = loadItems(withRequest : request)
         resultsList = []
         
         for i in 0 ..< dataList.count {
@@ -108,18 +113,16 @@ class AutoSuggestTextField: UITextField{
                 item.attributedSearchName!.setAttributes([.font: UIFont.boldSystemFont(ofSize: 17)], range: searchStringFilter)
                 
                 resultsList.append(item)
+               
             }
             resultsList.removeDuplicates()
             tableView?.reloadData()
         }
     }
-
-
 }
 
 extension AutoSuggestTextField: UITableViewDelegate, UITableViewDataSource {
     
-
     //////////////////////////////////////////////////////////////////////////////
     // MARK: SearchTableview View related methods
     //////////////////////////////////////////////////////////////////////////////
@@ -135,7 +138,7 @@ extension AutoSuggestTextField: UITableViewDelegate, UITableViewDataSource {
             self.window?.addSubview(tableView)
 
         } else {
-            addData()
+//            addData()
             tableView = UITableView(frame: CGRect.zero)
         }
         
@@ -169,7 +172,7 @@ extension AutoSuggestTextField: UITableViewDelegate, UITableViewDataSource {
             tableView.separatorInset = UIEdgeInsets.zero
             tableView.layer.cornerRadius = 5.0
             tableView.separatorColor = UIColor.lightGray
-            tableView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+            tableView.backgroundColor = UIColor.white.withAlphaComponent(0.7)
             
             if self.isFirstResponder {
                 superview?.bringSubviewToFront(self)
@@ -214,7 +217,6 @@ extension AutoSuggestTextField: UITableViewDelegate, UITableViewDataSource {
         let capitalized = text.capitalized
         self.text = capitalized
         result.nameType = text
-       
         saveItems(text: result.nameType!)
         
         dataList.append(result)
