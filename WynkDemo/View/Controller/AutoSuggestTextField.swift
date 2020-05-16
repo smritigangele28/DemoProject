@@ -9,21 +9,15 @@
 import UIKit
 import CoreData
 
-protocol SuggestedListDropDownDelegate {
-    func optionSelected(option: String)
-}
-
 class AutoSuggestTextField: UITextField{
     
+    static let sharedManager = AutoSuggestTextField()
     var dataList : [Result] = [Result]()
     var resultsList : [SearchItem] = [SearchItem]()
     var tableView: UITableView?
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-//    var delegate: SuggestedListDropDownDelegate?
-    
-    // Connecting the new element to the parent view
+
     open override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
         tableView?.removeFromSuperview()        
@@ -35,29 +29,24 @@ class AutoSuggestTextField: UITextField{
         self.addTarget(self, action: #selector(AutoSuggestTextField.textFieldDidChange), for: .editingChanged)
         self.addTarget(self, action: #selector(AutoSuggestTextField.textFieldDidBeginEditing), for: .editingDidBegin)
         self.addTarget(self, action: #selector(AutoSuggestTextField.textFieldDidEndEditing), for: .editingDidEnd)
-        self.addTarget(self, action: #selector(AutoSuggestTextField.textFieldDidEndEditingOnExit), for: .editingDidEndOnExit)
     }
-    
-    
+ 
     override open func layoutSubviews() {
         super.layoutSubviews()
         buildSearchTableView()
         
     }
-    
-    
+
     //////////////////////////////////////////////////////////////////////////////
-    // Text Field related methods
+    //MARK:- Search Text Field related methods
     //////////////////////////////////////////////////////////////////////////////
     
     @objc open func textFieldDidChange(){
-        filter()
-        updateSearchTableView()
-        tableView?.isHidden = false
+        loadDataAndUpdateTable()
     }
     
     @objc open func textFieldDidBeginEditing() {
-        print("Begin Editing")
+        //loadDataAndUpdateTable()
     }
     
     @objc open func textFieldDidEndEditing() {
@@ -65,11 +54,12 @@ class AutoSuggestTextField: UITextField{
          addData()
     }
     
-    @objc open func textFieldDidEndEditingOnExit() {
-        print("End on Exit")
-//        delegate?.optionSelected(option: capitalized)
+    func loadDataAndUpdateTable(){
+        filter()
+        updateSearchTableView()
+        tableView?.isHidden = false
     }
-    
+
     //////////////////////////////////////////////////////////////////////////////
     // Data Handling methods
     //////////////////////////////////////////////////////////////////////////////
@@ -78,7 +68,7 @@ class AutoSuggestTextField: UITextField{
     // MARK: CoreData manipulation methods
     
     // Don't need this function in this case
-    func saveItems(text: String) {
+   open func saveItems(text: String) {
           do {
             try context.save()
           } catch let error as NSError {
@@ -87,12 +77,13 @@ class AutoSuggestTextField: UITextField{
 
     }
     
-    func loadItems(withRequest request : NSFetchRequest<Result>) {
-        print("loading items")
+    open func loadItems(withRequest request : NSFetchRequest<Result>) -> [Result]? {
         do {
             dataList = try context.fetch(request)
+            return dataList
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
+            return nil
         }
 
     }
@@ -104,21 +95,21 @@ class AutoSuggestTextField: UITextField{
         let request : NSFetchRequest<Result> = Result.fetchRequest()
         request.predicate = predicate
         
-        loadItems(withRequest : request)
+        let result = loadItems(withRequest : request)
         resultsList = []
         
         for i in 0 ..< dataList.count {
 
-            let item = SearchItem(searchSttring: dataList[i].nameType!)
+            var item = SearchItem(searchSttring: dataList[i].nameType!)
             let searchStringFilter = (item.nameType as NSString).range(of: text!, options: .caseInsensitive)
             if searchStringFilter.location != NSNotFound {
                 item.attributedSearchName = NSMutableAttributedString(string: item.nameType)
 
                 item.attributedSearchName!.setAttributes([.font: UIFont.boldSystemFont(ofSize: 17)], range: searchStringFilter)
-
+                
                 resultsList.append(item)
             }
-            print("resultant list \(resultsList)")
+            resultsList.removeDuplicates()
             tableView?.reloadData()
         }
     }
@@ -130,13 +121,11 @@ extension AutoSuggestTextField: UITableViewDelegate, UITableViewDataSource {
     
 
     //////////////////////////////////////////////////////////////////////////////
-    // Table View related methods
+    // MARK: SearchTableview View related methods
     //////////////////////////////////////////////////////////////////////////////
     
-    
     // MARK: TableView creation and updating
-    
-    // Create SearchTableview
+
     func buildSearchTableView() {
 
         if let tableView = tableView {
@@ -147,7 +136,6 @@ extension AutoSuggestTextField: UITableViewDelegate, UITableViewDataSource {
 
         } else {
             addData()
-            print("tableView created")
             tableView = UITableView(frame: CGRect.zero)
         }
         
@@ -199,7 +187,6 @@ extension AutoSuggestTextField: UITableViewDelegate, UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(resultsList.count)
         return resultsList.count
     }
     
@@ -210,33 +197,27 @@ extension AutoSuggestTextField: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "option") as! SuggestedListTableViewCell
         cell.backgroundColor = UIColor.clear
         cell.configureCell(with: resultsList[indexPath.row].getFormatedText())
-       
         return cell
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected row")
         self.text = resultsList[indexPath.row].getStringText()
         tableView.isHidden = true
         self.endEditing(true)
     }
     
 
-    // MARK: Early testing methods
+    // MARK: Save searched text to core data
     func addData(){
-        let a = Result(context: context)
+        let result = Result(context: context)
         guard let text = self.text else { return }
         let capitalized = text.capitalized
         self.text = capitalized
-        a.nameType = text
+        result.nameType = text
        
-        saveItems(text: a.nameType!)
+        saveItems(text: result.nameType!)
         
-        dataList.append(a)
-//        dataList.append(b)
-//        dataList.append(c)
-//        dataList.append(d)
-//        dataList.append(e)
+        dataList.append(result)
     }
     
 }

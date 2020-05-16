@@ -10,4 +10,18 @@ import UIKit
 
 class GalleryCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var gallaryImage: UIImageView!
+    
+    var dataViewModel: DataObjectsViewModel!{
+          didSet{
+              let imageString = dataViewModel.imageURL
+              gallaryImage.loadImageUsingCache(withUrl: imageString)
+              
+          }
+      }
+    override func awakeFromNib() {
+           super.awakeFromNib()
+           // Initialization code
+           gallaryImage.contentMode = .scaleAspectFit
+       }
 }

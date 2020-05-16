@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F21BA028246F1ECE0089DEFE /* AutoSuggestTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21BA027246F1ECE0089DEFE /* AutoSuggestTextField.swift */; };
+		F21BA02A246F29160089DEFE /* SearchItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21BA029246F29160089DEFE /* SearchItems.swift */; };
+		F21BA02C246F3D400089DEFE /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21BA02B246F3D400089DEFE /* GalleryViewController.swift */; };
+		F21BA02E246F3E5F0089DEFE /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21BA02D246F3E5F0089DEFE /* GalleryCollectionViewCell.swift */; };
+		F225D61A246FAB360035A85D /* DataObjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225D619246FAB360035A85D /* DataObjectsViewModel.swift */; };
+		F227510D246D819E00A1E837 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F227510C246D819E00A1E837 /* UIView+Extension.swift */; };
+		F227510F246D91AF00A1E837 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F227510E246D91AF00A1E837 /* ListTableViewCell.swift */; };
+		F2275111246DBD7000A1E837 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2275110246DBD7000A1E837 /* UITextField+Extension.swift */; };
+		F2275113246DCA9600A1E837 /* DataModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2275112246DCA9600A1E837 /* DataModelDTO.swift */; };
+		F2288D66246DE224009D86DF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2288D65246DE224009D86DF /* NetworkManager.swift */; };
+		F2288D69246DED26009D86DF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2288D68246DED26009D86DF /* Constants.swift */; };
+		F25ACE3D246EB093000E376D /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25ACE3C246EB093000E376D /* UIImage+Extension.swift */; };
 		F2BE7834246D5D3900C8EAD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BE7833246D5D3900C8EAD7 /* AppDelegate.swift */; };
 		F2BE7836246D5D3900C8EAD7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BE7835246D5D3900C8EAD7 /* SceneDelegate.swift */; };
 		F2BE7838246D5D3900C8EAD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BE7837246D5D3900C8EAD7 /* ViewController.swift */; };
@@ -16,6 +28,7 @@
 		F2BE7843246D5D3E00C8EAD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2BE7841246D5D3E00C8EAD7 /* LaunchScreen.storyboard */; };
 		F2BE784E246D5D3E00C8EAD7 /* WynkDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BE784D246D5D3E00C8EAD7 /* WynkDemoTests.swift */; };
 		F2BE7859246D5D3E00C8EAD7 /* WynkDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BE7858246D5D3E00C8EAD7 /* WynkDemoUITests.swift */; };
+		F2BE786A246D5DF800C8EAD7 /* SuggestedListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BE7869246D5DF800C8EAD7 /* SuggestedListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +49,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F21BA027246F1ECE0089DEFE /* AutoSuggestTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSuggestTextField.swift; sourceTree = "<group>"; };
+		F21BA029246F29160089DEFE /* SearchItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItems.swift; sourceTree = "<group>"; };
+		F21BA02B246F3D400089DEFE /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		F21BA02D246F3E5F0089DEFE /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		F225D619246FAB360035A85D /* DataObjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataObjectsViewModel.swift; sourceTree = "<group>"; };
+		F227510C246D819E00A1E837 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		F227510E246D91AF00A1E837 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		F2275110246DBD7000A1E837 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		F2275112246DCA9600A1E837 /* DataModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelDTO.swift; sourceTree = "<group>"; };
+		F2288D65246DE224009D86DF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F2288D68246DED26009D86DF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F25ACE3C246EB093000E376D /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		F2BE7830246D5D3900C8EAD7 /* WynkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WynkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2BE7833246D5D3900C8EAD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2BE7835246D5D3900C8EAD7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +76,7 @@
 		F2BE7854246D5D3E00C8EAD7 /* WynkDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WynkDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2BE7858246D5D3E00C8EAD7 /* WynkDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WynkDemoUITests.swift; sourceTree = "<group>"; };
 		F2BE785A246D5D3E00C8EAD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2BE7869246D5DF800C8EAD7 /* SuggestedListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +104,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F21BA02F246F3E710089DEFE /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				F227510E246D91AF00A1E837 /* ListTableViewCell.swift */,
+				F2BE7869246D5DF800C8EAD7 /* SuggestedListTableViewCell.swift */,
+				F21BA02D246F3E5F0089DEFE /* GalleryCollectionViewCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		F225D618246FAAE40035A85D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F225D619246FAB360035A85D /* DataObjectsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F2275114246DCA9D00A1E837 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F2275112246DCA9600A1E837 /* DataModelDTO.swift */,
+				F21BA029246F29160089DEFE /* SearchItems.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F2288D67246DE229009D86DF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F2288D65246DE224009D86DF /* NetworkManager.swift */,
+				F2288D68246DED26009D86DF /* Constants.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F25ACE3B246E99C4000E376D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F21BA027246F1ECE0089DEFE /* AutoSuggestTextField.swift */,
+				F2BE7837246D5D3900C8EAD7 /* ViewController.swift */,
+				F21BA02B246F3D400089DEFE /* GalleryViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		F2BE7827246D5D3900C8EAD7 = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +173,13 @@
 		F2BE7832246D5D3900C8EAD7 /* WynkDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F225D618246FAAE40035A85D /* ViewModel */,
+				F2288D67246DE229009D86DF /* Service */,
+				F2275114246DCA9D00A1E837 /* Model */,
+				F2BE786B246D5E4300C8EAD7 /* Extensions */,
+				F2BE7866246D5D7800C8EAD7 /* View */,
 				F2BE7833246D5D3900C8EAD7 /* AppDelegate.swift */,
 				F2BE7835246D5D3900C8EAD7 /* SceneDelegate.swift */,
-				F2BE7837246D5D3900C8EAD7 /* ViewController.swift */,
 				F2BE7839246D5D3900C8EAD7 /* Main.storyboard */,
 				F2BE783F246D5D3E00C8EAD7 /* Assets.xcassets */,
 				F2BE7841246D5D3E00C8EAD7 /* LaunchScreen.storyboard */,
@@ -129,6 +205,25 @@
 				F2BE785A246D5D3E00C8EAD7 /* Info.plist */,
 			);
 			path = WynkDemoUITests;
+			sourceTree = "<group>";
+		};
+		F2BE7866246D5D7800C8EAD7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F21BA02F246F3E710089DEFE /* cell */,
+				F25ACE3B246E99C4000E376D /* Controller */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F2BE786B246D5E4300C8EAD7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F227510C246D819E00A1E837 /* UIView+Extension.swift */,
+				F2275110246DBD7000A1E837 /* UITextField+Extension.swift */,
+				F25ACE3C246EB093000E376D /* UIImage+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +357,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2BE786A246D5DF800C8EAD7 /* SuggestedListTableViewCell.swift in Sources */,
+				F227510F246D91AF00A1E837 /* ListTableViewCell.swift in Sources */,
+				F227510D246D819E00A1E837 /* UIView+Extension.swift in Sources */,
+				F2275111246DBD7000A1E837 /* UITextField+Extension.swift in Sources */,
+				F225D61A246FAB360035A85D /* DataObjectsViewModel.swift in Sources */,
+				F21BA02E246F3E5F0089DEFE /* GalleryCollectionViewCell.swift in Sources */,
 				F2BE7838246D5D3900C8EAD7 /* ViewController.swift in Sources */,
+				F21BA02C246F3D400089DEFE /* GalleryViewController.swift in Sources */,
+				F2275113246DCA9600A1E837 /* DataModelDTO.swift in Sources */,
 				F2BE7834246D5D3900C8EAD7 /* AppDelegate.swift in Sources */,
+				F21BA028246F1ECE0089DEFE /* AutoSuggestTextField.swift in Sources */,
+				F25ACE3D246EB093000E376D /* UIImage+Extension.swift in Sources */,
+				F2288D69246DED26009D86DF /* Constants.swift in Sources */,
 				F2BE7836246D5D3900C8EAD7 /* SceneDelegate.swift in Sources */,
+				F21BA02A246F29160089DEFE /* SearchItems.swift in Sources */,
+				F2288D66246DE224009D86DF /* NetworkManager.swift in Sources */,
 				F2BE783E246D5D3900C8EAD7 /* WynkDemo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,7 +546,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AFJAL4PCP8;
 				INFOPLIST_FILE = WynkDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -446,7 +556,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.infogain.WynkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -455,7 +566,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AFJAL4PCP8;
 				INFOPLIST_FILE = WynkDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -463,7 +576,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.infogain.WynkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct DataObjectsViewModel{
+    
+    var imageURL : String
+    
+    init(data: DataModelDTO) {
+        self.imageURL = data.largeImageURL
+    }
+    
+}
