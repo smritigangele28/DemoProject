@@ -28,10 +28,11 @@ class WynkDemoUITests: XCTestCase {
     func testEditingSearchField(){
  
         app.alerts["Sorry!"].scrollViews.otherElements.buttons["Ok"].tap()
-        app.textFields["Search "].tap()
-        app.tables.children(matching: .cell).element(boundBy: 2).children(matching: .other).element.swipeUp()
+        
+        let searchTextField = app.textFields["Search "]
+       //typeText("Photo")
+        searchTextField.tap()
+        searchTextField.typeText("Photo")
                 
     }
-    
-    // These kind of other test cases we can write here for UI testing
 }
